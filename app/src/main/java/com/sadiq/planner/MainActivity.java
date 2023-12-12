@@ -5,55 +5,76 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
 
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
+
+import com.google.android.material.tabs.TabLayout;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        ConstraintLayout constraintLayout = findViewById(R.id.constraintLayoutParent);
+        ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout);
+        TableLayout tableLayout = findViewById(R.id.BigTable);
+        // LinearLayout linearLayout = findViewById(R.id.linearLayout);
 
         List<Event> events = new ArrayList<>(); // example events for testing
-        events.add(new Event("Math", "NAC", 8,13));
-        events.add(new Event("English", "Steinman", 32, 37));
+        events.add(new Event("Math", "NAC", 8,13, 2));
+        events.add(new Event("English", "Steinman", 4, 10, 3));
+        events.add(new Event("Science", "Steinman", 2, 11, 2));
+        events.add(new Event("Physics", "Steinman", 2, 4, 4));
+        events.add(new Event("Art", "Steinman", 6, 7, 5));
+        events.add(new Event("Social Studies", "Steinman", 8, 16, 1));
 
-        for (Event e: events)
+        populateTable(tableLayout);
+
+        Event e = events.get(0);
+        for (int i = e.getStart(); i < e.getEnd(); i++)
         {
-            addEventTextView(constraintLayout, e);
+            TextView text = (TextView) getCell(tableLayout, i, e.getDay());
+            text.setText(e.getName());
+            text.setBackgroundColor(200);
+        }
+
+        setContentView(constraintLayout);
+    }
+
+    private void populateTable(TableLayout tableLayout)
+    {
+        for (int i = 0; i < 17; i++)
+        {
+            TableRow row = (TableRow) tableLayout.getChildAt(i);
+            for (int j = 0; j < 6; j++)
+            {
+                if (getCell(tableLayout,i, j) == null)
+                {
+                    TextView t = new TextView(this);
+                    row.addView(t);
+                }
+            }
         }
     }
+    private View getCell(TableLayout tableLayout, int row, int col)
+    {
+        TableRow tabRow = (TableRow) tableLayout.getChildAt(row);
+        if (tabRow != null)
+            return tabRow.getChildAt(col);
 
-    private void addEventTextView(ConstraintLayout c, Event e) {
-        TextView eventTextView = new TextView(this);
-        eventTextView.setText(e.getName());
-
-        // Set layout parameters
-        ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams(
-                ConstraintLayout.LayoutParams.WRAP_CONTENT,
-                ConstraintLayout.LayoutParams.WRAP_CONTENT
-        );
-        eventTextView.setLayoutParams(layoutParams);
-
-        // Add the view to the ConstraintLayout
-        c.addView(eventTextView);
-
-        // Set constraints based on event time
-        ConstraintSet constraintSet = new ConstraintSet();
-        constraintSet.clone(c);
-
-
-        // Set top and bottom constraints based on event start and end times
-        constraintSet.connect(eventTextView.getId(), ConstraintSet.TOP, c.getId(), ConstraintSet.TOP, e.getStart() * getResources().getDimensionPixelSize(R.dimen.time_block_height));
-        constraintSet.connect(eventTextView.getId(), ConstraintSet.BOTTOM, c.getId(), ConstraintSet.TOP, e.getEnd() * getResources().getDimensionPixelSize(R.dimen.time_block_height));
-
-        // Add more constraints as needed
-
-        constraintSet.applyTo(c);
+        return null;
     }
+
+
+    // accessing row and column. Each row (TableRow) is a child of TableLayout. Each
+    // column in the row is then a child of TableRow
+    // So to access (or create a view) at a c
 }
