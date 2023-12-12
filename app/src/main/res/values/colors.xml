@@ -15,4 +15,20 @@
     <color name="yellow_orange">#FFA726</color>
     <color name="orange">#FFA726</color>
     <color name="dark_orange">#FF7043</color>
+
+    <array name="rainbow">
+        <item>@color/black</item>
+        <item>@color/white</item>
+        <item>@color/red</item>
+        <item>@color/pink</item>
+        <item>@color/purple</item>
+        <item>@color/blue</item>
+        <item>@color/light_blue</item>
+        <item>@color/teal</item>
+        <item>@color/cyan</item>
+        <item>@color/green</item>
+        <item>@color/lime_yellow</item>
+        <item>@color/orange</item>
+        <item>@color/dark_orange</item>
+    </array>
 </resources>
