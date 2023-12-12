@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
 
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -33,32 +35,33 @@ public class MainActivity extends AppCompatActivity {
         // LinearLayout linearLayout = findViewById(R.id.linearLayout);
 
         List<Event> events = new ArrayList<>(); // example events for testing
-        events.add(new Event("Math", "NAC", 8,13, 2));
-        events.add(new Event("English", "Steinman", 4, 10, 3));
-        events.add(new Event("Science", "Steinman", 2, 11, 2));
+        events.add(new Event("Math", "NAC", 8, 13, 2));
+        events.add(new Event("English", "Shepard", 4, 10, 3));
+        events.add(new Event("Science", "Steinman", 2, 6, 2));
         events.add(new Event("Physics", "Steinman", 2, 4, 4));
         events.add(new Event("Art", "Steinman", 6, 7, 5));
         events.add(new Event("Social Studies", "Steinman", 8, 16, 1));
 
         populateTable(tableLayout);
-
-        Event e = events.get(0);
-        for (int i = e.getStart(); i < e.getEnd(); i++)
-        {
-            // TextView creation and configuration
-            TextView text = (TextView) getCell(tableLayout, i, e.getDay());
-            text.setMaxWidth(30);
-            text.setMaxHeight(40);
-            text.setAutoSizeTextTypeUniformWithConfiguration(10, 16, 1, TypedValue.COMPLEX_UNIT_DIP );
-            text.setLines(2);
-
-            // Setting the text
-            String t = e.getName() + "\nRoom: " + e.getLocation();
-            if (i == e.getStart())
-            {
-                text.setText(t);
+        Resources res = getResources(); // resources
+        int[] colors = res.getIntArray(R.array.rainbow);
+        for (Event e : events) {
+            for (int i = e.getStart(); i < e.getEnd(); i++) {
+                // TextView creation and configuration
+                TextView text = (TextView) getCell(tableLayout, i, e.getDay());
+                text.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
+                text.setMaxWidth(30);
+                text.setAutoSizeTextTypeUniformWithConfiguration(10, 16, 1, TypedValue.COMPLEX_UNIT_DIP);
+                text.setLines(2);
+                text.setPadding(10, 10, 10, 0);
+                // Setting the text
+                String t = e.getName() + "\n" + e.getLocation();
+                if (i == e.getStart()) {
+                    text.setText(t);
+                    text.setTextColor(getColor(R.color.white));
+                }
+                text.setBackgroundColor(colors[e.getDay() + 2]);
             }
-            text.setBackgroundResource(R.color.red);
         }
 
         setContentView(constraintLayout);
