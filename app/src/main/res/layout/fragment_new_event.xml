@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/newEventText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:hint="Enter Event Name"
+        android:layout_marginBottom="16sp"
+        />
+
+    <EditText
+        android:id="@+id/newEventStart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:hint="Enter Start Time"
+        android:layout_below="@id/newEventText"
+        android:layout_marginBottom="16sp"/>
+
+    <EditText
+        android:id="@+id/newEventEnd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:hint="Enter End Time"
+        android:layout_below="@id/newEventStart"
+        android:layout_marginBottom="16sp"/>
+
+    <EditText
+        android:id="@+id/newEventLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:hint="Enter Location"
+        android:layout_below="@id/newEventEnd"
+        android:layout_marginBottom="16sp"/>
+
+
+    <Button
+        android:id="@+id/newEventButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/newEventLocation"
+        android:layout_alignParentEnd="true"
+        android:textSize="16sp"
+        android:text="Create Event"
+
+
+
+        />
+
+
+
+
+
+
+
+
+
+</RelativeLayout>
+
+
+
