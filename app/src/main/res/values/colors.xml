@@ -10,10 +10,10 @@
     <color name="teal">#26A69A</color>
     <color name="cyan">#26C6DA</color>
     <color name="green">#66BB6A</color>
-    <color name="lime_yellow">#D4E157</color>
-    <color name="yellow">#FFEE58</color>
+    <color name="lime_yellow">#AFB42B</color>
+    <color name="yellow">#F9A825</color>
     <color name="yellow_orange">#FFA726</color>
-    <color name="orange">#FFA726</color>
+    <color name="orange">#FB8C00</color>
     <color name="dark_orange">#FF7043</color>
 
     <array name="rainbow">
@@ -28,6 +28,8 @@
         <item>@color/cyan</item>
         <item>@color/green</item>
         <item>@color/lime_yellow</item>
+        <item>@color/yellow</item>
+        <item>@color/yellow_orange</item>
         <item>@color/orange</item>
         <item>@color/dark_orange</item>
     </array>
