@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/newEventText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16sp"
+        android:background="@null"
+        android:hint="@string/enter_event_name"
+        android:inputType="text"
+        android:minHeight="32dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColorHint="#8D6E63"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/newEventStart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/newEventText"
+        android:layout_marginBottom="16sp"
+        android:background="@null"
+        android:hint="@string/enter_start_time"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColorHint="#8D6E63"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/newEventEnd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/newEventStart"
+        android:layout_marginBottom="16sp"
+        android:background="@null"
+        android:hint="@string/enter_end_time"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColorHint="#8D6E63"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/newEventLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/newEventEnd"
+        android:layout_marginBottom="16sp"
+        android:background="@null"
+        android:hint="@string/enter_location"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColorHint="#8D6E63"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/newEventDay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/newEventLocation"
+        android:layout_marginBottom="16sp"
+        android:background="@null"
+        android:hint="@string/enter_day"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColorHint="#8D6E63"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/newEventButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/newEventDay"
+        android:layout_alignParentEnd="true"
+        android:textSize="16sp"
+        android:text="@string/create_event" />
+</RelativeLayout>

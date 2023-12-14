@@ -1,6 +1,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -16,42 +17,42 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <!-- Your columns in the first row -->
             <TextView
-                android:layout_width="30dp"
-                android:layout_height="wrap_content" />
+                android:layout_width="39dp"
+                android:layout_height="match_parent" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/row_margin"
-                android:text="Monday" />
+                android:text="MON" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/row_margin"
-                android:text="Tuesday" />
+                android:text="TUES" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/row_margin"
-                android:text="Wednesday" />
+                android:text="WED" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/row_margin"
-                android:text="Thursday" />
+                android:text="THUR" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/row_margin"
-                android:text="Friday" />
+                android:text="FRI    " />
 
 
             <!-- Add more TextViews for additional columns if needed -->
@@ -74,8 +75,7 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            > <!-- Set the background color of the second row -->
+            android:layout_height="wrap_content"> <!-- Set the background color of the second row -->
 
             <!-- Your columns in the second row -->
             <TextView
@@ -102,8 +102,7 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            > <!-- Set the background color of the second row -->
+            android:layout_height="wrap_content"> <!-- Set the background color of the second row -->
 
             <!-- Your columns in the second row -->
             <TextView
@@ -130,8 +129,7 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            > <!-- Set the background color of the second row -->
+            android:layout_height="wrap_content"> <!-- Set the background color of the second row -->
 
             <!-- Your columns in the second row -->
             <TextView
@@ -158,8 +156,7 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            > <!-- Set the background color of the second row -->
+            android:layout_height="wrap_content"> <!-- Set the background color of the second row -->
 
             <!-- Your columns in the second row -->
             <TextView
@@ -186,8 +183,7 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            > <!-- Set the background color of the second row -->
+            android:layout_height="wrap_content"> <!-- Set the background color of the second row -->
 
             <!-- Your columns in the second row -->
             <TextView
@@ -214,8 +210,7 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            > <!-- Set the background color of the second row -->
+            android:layout_height="wrap_content"> <!-- Set the background color of the second row -->
 
             <!-- Your columns in the second row -->
             <TextView

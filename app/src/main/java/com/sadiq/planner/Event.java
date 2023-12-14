@@ -19,6 +19,14 @@ public class Event { // Event model file
         this.endTime = endTime;
         this.day = day;
     }
+
+    public Event() { // default constructor
+        this.name = "";
+        this.location = null;
+        this.startTime = 0;
+        this.endTime = 0;
+        this.day = 0;
+    }
     public String getName() { return name; }
     public String getLocation() { return location; }
     public int getStart() { return startTime; }
@@ -31,4 +39,6 @@ public class Event { // Event model file
     public void setStartTime(int startTime) { this.startTime = startTime; }
 
     public void setEndTime(int endTime) { this.endTime = endTime; }
+
+    public void setDay(int day) { this.day = day; }
 }

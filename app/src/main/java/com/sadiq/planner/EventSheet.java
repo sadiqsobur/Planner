@@ -17,23 +17,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity {
+public class EventSheet extends Entry {
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.event_layout);
         ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout);
         TableLayout tableLayout = findViewById(R.id.BigTable);
         // LinearLayout linearLayout = findViewById(R.id.linearLayout);
 
-        List<Event> events = new ArrayList<>(); // example events for testing
+
+        /*List<Event> events = new ArrayList<>(); // example events for testing
         events.add(new Event("Math", "NAC", 8, 13, 2));
         events.add(new Event("English", "Shepard", 4, 10, 3));
         events.add(new Event("CSC 221", "Steinman", 2, 6, 2));
         events.add(new Event("Physics", "Steinman", 2, 4, 4));
         events.add(new Event("Art", "Steinman", 6, 7, 5));
-        events.add(new Event("Science", "MR-3", 8, 16, 1));
+        events.add(new Event("Science", "MR-3", 8, 16, 1)); */
 
         populateTable(tableLayout);
 
@@ -98,7 +99,6 @@ public class MainActivity extends AppCompatActivity {
 
         return null;
     }
-
 
     // accessing row and column. Each row (TableRow) is a child of TableLayout. Each
     // column in the row is then a child of TableRow
