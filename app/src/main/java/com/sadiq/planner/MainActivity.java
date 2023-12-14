@@ -36,8 +36,10 @@ public class MainActivity extends AppCompatActivity {
         events.add(new Event("Science", "MR-3", 8, 16, 1));
 
         populateTable(tableLayout);
+
         Resources res = getResources(); // resources
         int[] colors = res.getIntArray(R.array.rainbow);
+
         for (Event e : events) {
             int cooler = colors[randColor()];
             for (int i = e.getStart(); i < e.getEnd(); i++) {
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+
         setContentView(constraintLayout);
     }
 
@@ -68,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
         Random rand = new Random();
         return rand.nextInt(13) + 2;
     }
+
+    // Populates the table layout with TextViews that can be altered
     private void populateTable(TableLayout tableLayout)
     {
         for (int i = 0; i < 17; i++)
@@ -83,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+    // This is here to get the view at a position in the table
     private View getCell(TableLayout tableLayout, int row, int col)
     {
         TableRow tabRow = (TableRow) tableLayout.getChildAt(row);
