@@ -1,14 +1,16 @@
 package com.sadiq.planner;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.view.View;
 import android.widget.EditText;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Entry extends AppCompatActivity {
+public class Entry extends Fragment {
     private Button button;
     public List<Event> events = new ArrayList<>();
 
@@ -19,19 +21,17 @@ public class Entry extends AppCompatActivity {
     EditText day;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.entry_layout);
-        button = findViewById(R.id.newEventButton);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        button = button.findViewById(R.id.newEventButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Event event = new Event();
-                eventName = findViewById(R.id.newEventText);
-                startTime = findViewById(R.id.newEventStart);
-                endTime = findViewById(R.id.newEventEnd);
-                location = findViewById(R.id.newEventLocation);
-                day = findViewById(R.id.newEventDay);
+                eventName = eventName.findViewById(R.id.newEventText);
+                startTime = startTime.findViewById(R.id.newEventStart);
+                endTime = endTime.findViewById(R.id.newEventEnd);
+                location = location.findViewById(R.id.newEventLocation);
+                day = day.findViewById(R.id.newEventDay);
                 event.setName(eventName.getText().toString());
                 event.setLocation(location.getText().toString());
                 String dayString = day.getText().toString();
@@ -43,5 +43,6 @@ public class Entry extends AppCompatActivity {
                 events.add(event);
             }
         });
+        return inflater.inflate(R.layout.entry_layout, container, false);
     }
 }

@@ -3,11 +3,14 @@ package com.sadiq.planner;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
+
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.TypedValue;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TableLayout;
@@ -17,24 +20,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class EventSheet extends Entry {
+public class EventSheet extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.O)
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.event_layout);
-        ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout);
-        TableLayout tableLayout = findViewById(R.id.BigTable);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.event_layout, container, false);
+    }
+    public void onViewCreated(Bundle savedInstanceState) {
+        View v = getView();
+        ConstraintLayout constraintLayout = v.findViewById(R.id.constraintLayout);
+        TableLayout tableLayout = v.findViewById(R.id.BigTable);
         // LinearLayout linearLayout = findViewById(R.id.linearLayout);
 
-
-        /*List<Event> events = new ArrayList<>(); // example events for testing
+        List<Event> events = new ArrayList<>(); // example events for testing
         events.add(new Event("Math", "NAC", 8, 13, 2));
         events.add(new Event("English", "Shepard", 4, 10, 3));
         events.add(new Event("CSC 221", "Steinman", 2, 6, 2));
         events.add(new Event("Physics", "Steinman", 2, 4, 4));
         events.add(new Event("Art", "Steinman", 6, 7, 5));
-        events.add(new Event("Science", "MR-3", 8, 16, 1)); */
+        events.add(new Event("Science", "MR-3", 8, 16, 1));
 
         populateTable(tableLayout);
 
@@ -49,22 +54,21 @@ public class EventSheet extends Entry {
                 text.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
                 text.setEllipsize(TextUtils.TruncateAt.END);
                 text.setWidth(30);
-                text.setAutoSizeTextTypeUniformWithConfiguration(10, 16, 1, TypedValue.COMPLEX_UNIT_DIP);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    text.setAutoSizeTextTypeUniformWithConfiguration(10, 16, 1, TypedValue.COMPLEX_UNIT_DIP);
+                }
                 text.setLines(2);
                 text.setPadding(10, 10, 10, 0);
                 // Setting the text
                 String t = e.getName() + "\n" + e.getLocation();
                 if (i == e.getStart()) {
                     text.setText(t);
-                    text.setTextColor(getColor(R.color.white));
+                    text.setTextColor(0);
                 }
 
                 text.setBackgroundColor(cooler);
             }
         }
-
-
-        setContentView(constraintLayout);
     }
 
     private int randColor() // NOT BLACK OR WHITE
@@ -83,7 +87,7 @@ public class EventSheet extends Entry {
             {
                 if (getCell(tableLayout,i, j) == null)
                 {
-                    TextView t = new TextView(this);
+                    TextView t = new TextView(getActivity());
                     row.addView(t);
                 }
             }
